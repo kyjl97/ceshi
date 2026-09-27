@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <title>blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    /* 保持入口页背景 */
+    body {
+      margin: 0;
+      background-color: #FAFAFA;
+      font-family: 'Inter', sans-serif;
+    }
+    /* Docsify 适配 */
+    #app {
+      padding-top: 0; /* 防止搜索框位置偏移 */
+    }
+    /* 确保搜索框可见 */
+    .search {
+      display: block !important;
+      position: fixed !important;
+      top: 20px !important;
+      right: 20px !important;
+      z-index: 9999 !important;
+      background: rgba(255, 255, 255, 0.9) !important;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1) !important;
+      border-radius: 30px !important;
+      border: none !important;
+      padding: 8px 15px !important;
+    }
+    /* 搜索框输入样式 */
+    .search input {
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+      font-family: 'Inter', sans-serif !important;
+    }
+    /* 隐藏默认标题栏 */
+    .sidebar-toggle, .app-name {
+      display: none !important;
+    }
+  </style>
+  <!-- 加载字体（匹配入口页） -->
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Docsify 主题 -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
+</head>
+<body>
+  <!-- Docsify 挂载点 -->
+  <div id="app"></div>
+
+  <!-- Docsify 核心库 + 搜索插件 -->
+  <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify@4/lib/plugins/search.min.js"></script>
+  
+  <!-- Polyfill 确保搜索功能 -->
+  <script src="//polyfill.io/v3/polyfill.min.js?features=String.prototype.normalize"></script>
+
+  <!-- Docsify 配置 -->
+  <script>
+    window.$docsify = {
+      name: '', // 隐藏默认标题
+      loadSidebar: true,
+      subMaxLevel: 3, // 展开3级标题
+      autoHeader: true,
+      search: {
+        maxAge: 86400000, // 缓存
+        placeholder: '搜索文章...',
+        noData: '没有找到结果',
+        depth: 3 // 搜索深度
+      }
+    };
+  </script>
+</body>
+</html>
